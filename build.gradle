@@ -1,5 +1,7 @@
 plugins {
     id 'java'
+    id 'application'
+    id 'org.openjfx.javafxplugin' version '0.1.0'
 }
 
 group = 'ir.ac.kntu'
@@ -8,6 +10,13 @@ version = '1.0-SNAPSHOT'
 java {
     sourceCompatibility = '17'
 }
+
+javafx {
+    version = "22.0.1"
+    modules = [ 'javafx.controls', 'javafx.fxml' ]
+}
+
+mainClassName = 'ir.ac.kntu.Main'
 
 repositories {
     mavenCentral()
