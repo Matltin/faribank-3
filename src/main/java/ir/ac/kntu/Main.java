@@ -1,33 +1,42 @@
 package ir.ac.kntu;
 
+import ir.ac.kntu.db.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
-
-import java.io.IOException;
 
 public class Main extends Application {
 
+    private SimCardDB simCardDB;
+    private CustomerDB customerDB;
+    private BankDB bankDB;
+    private AnswerDB answerDB;
+    private PayaDB payaDB;
+
     @Override
-    public void start(Stage stage) throws IOException {
-//        String javaVersion = System.getProperty("java.version");
-//        String javafxVersion = System.getProperty("javafx.version");
-//        Label l = new Label("Hello, JavaFX " + javafxVersion + ", running on Java " + javaVersion + ".");
-//        Scene scene = new Scene(new StackPane(l), 640, 480);
-
-        Parent root = FXMLLoader.load(getClass().getResource("Scene1.fxml"));
+    public void start(Stage stage) throws Exception {
+        inti();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("login.fxml"));
+        Parent root = loader.load();
         Scene scene = new Scene(root);
-
+        scene.getStylesheets().add("LoginStyle.css");
         stage.setScene(scene);
         stage.show();
     }
 
     public static void main(String[] args) {
-        launch();
+        launch(args);
     }
 
+    public void inti() {
+        simCardDB = new SimCardDB();
+        customerDB = new CustomerDB(simCardDB);
+        bankDB = new BankDB(simCardDB);
+//        adminDB = new AdminDB(new HashSet<>());
+//        chiefDB = new ChiefDB(new HashSet<>());
+        answerDB = new AnswerDB();
+        payaDB = new PayaDB();
+    }
 }

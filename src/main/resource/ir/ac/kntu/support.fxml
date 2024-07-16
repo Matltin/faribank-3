@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="1200.0" style="-fx-background-color: dimgray;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.demo.RequestController">
+    <children>
+        <ScrollPane layoutX="14.0" layoutY="14.0" prefHeight="450.0" prefWidth="1170.0" styleClass="ScrollPane" stylesheets="@DashStyle.css">
+            <content>
+                <TableView fx:id="tableView" prefHeight="448.0" prefWidth="1168.0">
+                    <columns>
+                        <TableColumn fx:id="matter" prefWidth="161.0" text="Matter" />
+                        <TableColumn fx:id="request" prefWidth="1005.0" text="Your request" />
+                    </columns>
+                    <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                    </columnResizePolicy>
+                </TableView>
+            </content>
+        </ScrollPane>
+        <AnchorPane layoutX="14.0" layoutY="475.0" prefHeight="261.0" prefWidth="1170.0" styleClass="wallpaper" stylesheets="@DashStyle.css">
+            <children>
+                <Label layoutX="14.0" layoutY="14.0" text="New request" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="18.0" />
+                    </font>
+                </Label>
+                <Label layoutX="259.0" layoutY="29.0" text="Request matter" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="18.0" />
+                    </font>
+                </Label>
+                <TextArea fx:id="requestField" layoutX="662.0" layoutY="34.0" prefHeight="200.0" prefWidth="200.0" />
+                <Label layoutX="516.0" layoutY="29.0" text="Your request:" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="18.0" />
+                    </font>
+                </Label>
+                <RadioButton fx:id="report" layoutX="296.0" layoutY="70.0" mnemonicParsing="false" text="Report" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font>
+                    <toggleGroup>
+                        <ToggleGroup fx:id="r" />
+                    </toggleGroup>
+                </RadioButton>
+                <RadioButton fx:id="contact" layoutX="296.0" layoutY="110.0" mnemonicParsing="false" text="Contact" textFill="WHITE" toggleGroup="$r">
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font>
+                </RadioButton>
+                <RadioButton fx:id="transfer" layoutX="296.0" layoutY="150.0" mnemonicParsing="false" text="Transfer" textFill="WHITE" toggleGroup="$r">
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font>
+                </RadioButton>
+                <RadioButton fx:id="setting" layoutX="296.0" layoutY="190.0" mnemonicParsing="false" text="Settings" textFill="WHITE" toggleGroup="$r">
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font>
+                </RadioButton>
+                <Button layoutX="971.0" layoutY="79.0" mnemonicParsing="false" onAction="#addRequest" prefHeight="40.0" prefWidth="100.0" styleClass="buttons" stylesheets="@LoginStyle.css" text="Submit" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font>
+                </Button>
+                <Button layoutX="971.0" layoutY="148.0" mnemonicParsing="false" onAction="#back" prefHeight="40.0" prefWidth="100.0" styleClass="buttons" stylesheets="@LoginStyle.css" text="back" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font>
+                </Button>
+                <Label fx:id="label" layoutX="14.0" layoutY="122.0" prefHeight="18.0" prefWidth="115.0" textAlignment="CENTER">
+                    <font>
+                        <Font name="System Bold" />
+                    </font>
+                </Label>
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>

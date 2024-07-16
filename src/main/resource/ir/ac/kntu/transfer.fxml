@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="1200.0" style="-fx-background-color: dimgray;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.demo.TransferController">
+    <children>
+        <AnchorPane fx:id="chosePage" layoutX="14.0" layoutY="14.0" prefHeight="722.0" prefWidth="1171.0" styleClass="sidebar" stylesheets="@BoxStyle.css" visible="false">
+            <children>
+                <Button layoutX="461.0" layoutY="279.0" mnemonicParsing="false" onAction="#showAccountNumber" prefHeight="45.0" prefWidth="250.0" styleClass="buttons" stylesheets="@LoginStyle.css" text="Transfer by account" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font>
+                </Button>
+                <Button layoutX="461.0" layoutY="399.0" mnemonicParsing="false" onAction="#showCardNumber" prefHeight="45.0" prefWidth="250.0" styleClass="buttons" stylesheets="@LoginStyle.css" text="Transfer by card" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font>
+                </Button>
+                <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#back" prefHeight="30.0" prefWidth="70.0" styleClass="logout" stylesheets="@DashStyle.css" text="&lt; Back" textFill="DARKSLATEGRAY">
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font>
+                </Button>
+            </children>
+        </AnchorPane>
+        <AnchorPane fx:id="transferPage" layoutX="14.0" layoutY="14.0" prefHeight="722.0" prefWidth="1171.0">
+            <children>
+                <AnchorPane prefHeight="350.0" prefWidth="575.0" styleClass="list" stylesheets="@DashStyle.css">
+                    <children>
+                        <Label layoutX="14.0" layoutY="14.0" text="Contacts" textFill="WHITE">
+                            <font>
+                                <Font name="System Bold" size="18.0" />
+                            </font>
+                        </Label>
+                        <ScrollPane layoutX="14.0" layoutY="40.0" prefHeight="295.0" prefWidth="545.0" styleClass="ScrollPane" stylesheets="@DashStyle.css">
+                            <content>
+                                <TableView fx:id="tableViewContact" prefHeight="293.0" prefWidth="543.0">
+                                    <columns>
+                                        <TableColumn fx:id="nameColumnContact" prefWidth="75.0" text="First name" />
+                                        <TableColumn fx:id="lastNameColumnContact" prefWidth="75.0" text="Last name" />
+                                        <TableColumn fx:id="phoneColumnContact" prefWidth="75.0" text="Phone number" />
+                                        <TableColumn fx:id="accountNumberContact" prefWidth="75.0" text="Account number" />
+                                    </columns>
+                                    <columnResizePolicy>
+                                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                    </columnResizePolicy>
+                                </TableView>
+                            </content>
+                        </ScrollPane>
+                    </children>
+                </AnchorPane>
+                <AnchorPane layoutX="596.0" prefHeight="350.0" prefWidth="575.0" styleClass="list" stylesheets="@DashStyle.css">
+                    <children>
+                        <Label layoutX="14.0" layoutY="14.0" text="Transactions" textFill="WHITE">
+                            <font>
+                                <Font name="System Bold" size="18.0" />
+                            </font>
+                        </Label>
+                        <ScrollPane layoutX="14.0" layoutY="40.0" prefHeight="295.0" prefWidth="545.0" styleClass="ScrollPane" stylesheets="@DashStyle.css">
+                            <content>
+                                <TableView fx:id="tableViewTransfer" prefHeight="293.0" prefWidth="543.0">
+                                    <columns>
+                                        <TableColumn fx:id="nameColumnTransfer" prefWidth="75.0" text="First name" />
+                                        <TableColumn fx:id="lastNameColumnTransfer" prefWidth="75.0" text="Last name" />
+                                        <TableColumn fx:id="phoneColumnTransfer" prefWidth="75.0" text="Phone number" />
+                                        <TableColumn fx:id="accountNumberTransfer" prefWidth="75.0" text="Account number" />
+                                    </columns>
+                                    <columnResizePolicy>
+                                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                    </columnResizePolicy>
+                                </TableView>
+                            </content>
+                        </ScrollPane>
+                    </children>
+                </AnchorPane>
+                <AnchorPane layoutX="-10.0" layoutY="368.0" prefHeight="360.0" prefWidth="1171.0" styleClass="side-bar" stylesheets="@DashStyle.css">
+                    <children>
+                        <TextField fx:id="number" layoutX="486.0" layoutY="90.0" prefHeight="30.0" prefWidth="200.0" styleClass="fields" stylesheets="@LoginStyle.css" />
+                        <Label fx:id="label" layoutX="497.0" layoutY="70.0" text="Account number" textFill="WHITE">
+                            <font>
+                                <Font name="System Bold" size="13.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="money" layoutX="486.0" layoutY="180.0" prefHeight="30.0" prefWidth="200.0" promptText="\$0.0" styleClass="fields" stylesheets="@LoginStyle.css" />
+                        <Label layoutX="497.0" layoutY="160.0" text="Amount" textFill="WHITE">
+                            <font>
+                                <Font name="System Bold" size="13.0" />
+                            </font>
+                        </Label>
+                        <Button layoutX="511.0" layoutY="250.0" mnemonicParsing="false" onAction="#transferIt" prefHeight="40.0" prefWidth="150.0" styleClass="buttons" stylesheets="@LoginStyle.css" text="Transfer" textFill="WHITE">
+                            <font>
+                                <Font name="System Bold" size="13.0" />
+                            </font>
+                        </Button>
+                        <Label layoutX="497.0" layoutY="70.0" text="Card number" textFill="WHITE" visible="false">
+                            <font>
+                                <Font name="System Bold" size="13.0" />
+                            </font>
+                        </Label>
+                        <Button layoutX="14.0" layoutY="316.0" mnemonicParsing="false" onAction="#back" prefHeight="30.0" prefWidth="70.0" styleClass="buttons" stylesheets="@LoginStyle.css" text="&lt; Back" textFill="WHITE">
+                            <font>
+                                <Font name="System Bold" size="13.0" />
+                            </font>
+                        </Button>
+                        <Label fx:id="errorLabel" layoutX="515.0" layoutY="316.0" prefHeight="18.0" prefWidth="142.0">
+                            <font>
+                                <Font name="System Bold" size="13.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </AnchorPane>
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>
